@@ -1,0 +1,406 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    width: 100vw;
+    min-height: 100vh;
+    background-image: url('back.jpg');
+    font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  article {
+    width: 100%;
+    max-width: 1265px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  
+  figure {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 0 30px 0;
+  }
+  
+  figure figcaption {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  
+  figure figcaption h1 {
+    font: normal normal 400 240% / 1.5cap "Della Respira", serif;
+    padding: 0 0 10px 0;
+    margin: 0 0 20px 0;
+    border-bottom: 1px solid #333;
+    text-wrap: balance;
+  }
+  
+  figure figcaption p {
+    color: #bbb;
+    padding-left: 30px;
+    margin: 0;
+    border-left: 10px solid;
+    border-image: repeating-linear-gradient(
+        43deg,
+        white,
+        white 4px,
+        transparent 5px,
+        transparent 9px,
+        white 10px
+      )
+      10;
+    text-wrap: pretty;
+  }
+  
+  figure figcaption p span:last-of-type {
+    display: none;
+  }
+  
+  button {
+    font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #666;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  button::after {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    content: "";
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover::after {
+    right: 0;
+    transition: all 0.3s ease;
+  }
+  
+  button input {
+    display: none;
+  }
+  
+  button label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(180, 164, 245);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover label {
+    color: black;
+    transition: all 0.3s ease;
+  }
+  
+  button label span {
+    display: none;
+  }
+  
+  button:not(:has(input:checked)) label span:first-of-type {
+    display: initial;
+  }
+  
+  button:has(input:checked) label span:last-of-type {
+    display: initial;
+  }
+  
+  section {
+    width: 100%;
+    height: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: stretch;
+    border-right: 1px solid #555;
+    border-bottom: 1px solid #555;
+    border-left: 1px solid #555;
+    transition: all 0.5s ease;
+    position: relative;
+  }
+  
+  section::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(
+      90deg,
+      #ff00bb,
+      #ff00b6,
+      #ff00a8,
+      #ff0b93,
+      #ff347a,
+      #ff585f,
+      #ff7a44,
+      #ff9829,
+      #ffb20c,
+      #ffc500,
+      #ffd100,
+      #ffd500
+    );
+    content: "";
+    z-index: 2;
+    transition: all 1.2s ease;
+  }
+  
+  figure:has(button input:checked) ~ section::before {
+    width: 0px;
+    transition: all 1.2s ease;
+  }
+  
+  div {
+    flex-grow: 1;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    transition: all 0.4s ease;
+  }
+  
+  figure:has(button input:checked) ~ section {
+    height: 220px;
+    transition: all 0.5s ease;
+  }
+  
+  figure:has(button input:checked) ~ section div,
+  figure:has(button input:checked)
+    ~ section
+    div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div {
+    opacity: 1;
+    flex-grow: 2;
+    transition-delay: 0.15s;
+  }
+  
+  figure:has(button input:checked) ~ section div + div,
+  figure:has(button input:checked)
+    ~ section
+    div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div {
+    opacity: 1;
+    transition-delay: 0.3s;
+    flex-grow: 3;
+  }
+  
+  figure:has(button input:checked) ~ section div + div + div,
+  figure:has(button input:checked)
+    ~ section
+    div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div {
+    opacity: 1;
+    transition-delay: 0.45s;
+    flex-grow: 4;
+  }
+  
+  figure:has(button input:checked) ~ section div + div + div + div,
+  figure:has(button input:checked)
+    ~ section
+    div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div {
+    opacity: 1;
+    transition-delay: 0.6s;
+    flex-grow: 5;
+  }
+  
+  figure:has(button input:checked) ~ section div + div + div + div + div,
+  figure:has(button input:checked)
+    ~ section
+    div
+    + div
+    + div
+    + div
+    + div
+    + div
+    + div {
+    opacity: 1;
+    transition-delay: 0.75s;
+    flex-grow: 6;
+  }
+  
+  figure:has(button input:checked) ~ section div + div + div + div + div + div {
+    opacity: 1;
+    transition-delay: 0.9s;
+    flex-grow: 7;
+  }
+  
+  section div:hover {
+    flex-grow: 2 !important;
+  }
+  
+  section:has(div:hover) div:not(:hover) {
+    flex-grow: 1 !important;
+  }
+  
+  section:has(div:hover) div {
+    transition-delay: 0s !important;
+  }
+  
+  figure:has(button input:checked) ~ section div {
+    animation: pointerFix 1.7s linear 0s 1 normal;
+  }
+  
+  @keyframes pointerFix {
+    0% {
+      pointer-events: none;
+    }
+    99% {
+      pointer-events: none;
+    }
+    100% {
+      pointer-events: initial;
+    }
+  }
+  
+  /* Change Gallery Images */
+  
+  section div:first-of-type {
+    background-image: url("12.jpg");
+  }
+  
+  section div + div {
+    background-image: url("2.jpg");
+  }
+  
+  section div + div + div {
+    background-image: url("11.jpeg");
+  }
+  
+  section div + div + div + div {
+    background-image: url("8.jpg");
+  }
+  
+  section div + div + div + div + div {
+    background-image: url("5.png");
+  }
+  
+  section div + div + div + div + div + div {
+    background-image: url("7.jpeg");
+  }
+  
+  section div + div + div + div + div + div + div {
+    background-image: url("6.jpg");
+  }
+  
+  section div + div + div + div + div + div + div + div {
+    background-image: url("3.jpg");
+  }
+  
+  section div + div + div + div + div + div + div + div + div {
+    background-image: url("9.jpg");
+  }
+  
+  section div + div + div + div + div + div + div + div + div + div {
+    background-image: url("1.jpg");
+  }
+  
+  section div:last-of-type {
+    background-image: url("4.jpeg");
+  }
+  
+  @media (max-width: 900px) {
+    figure {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    figure figcaption {
+      margin-bottom: 20px;
+    }
+    figure figcaption p span:first-of-type {
+      display: none;
+    }
+    figure figcaption p span:last-of-type {
+      display: initial;
+    }
+    button {
+      width: 100%;
+      max-width: 600px;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    figure figcaption {
+      max-width: unset;
+    }
+    button {
+      max-width: unset;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    section {
+      flex-direction: column;
+    }
+    figure:has(button input:checked) ~ section {
+      height: 1000px;
+    }
+  }
+  
